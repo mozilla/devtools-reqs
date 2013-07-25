@@ -1,0 +1,147 @@
+# The Developer Tools API - PRD DRAFT
+
+*Jeff Griffiths / Mozilla*
+
+
+## Background
+
+Firefox became wildly popular amongst web developers shortly after its initial release in 2006 and revolutionized web development. It is fair to say that the tools created by Google, Apple,, Microsoft since then are largely in reaction to the potent Firebug + Firefox combo, and for a few years most sane web developers lived and breathed Firebug as a tool.
+
+As well, Firebug’s strengths and weaknesses have been hugely influential on the design goals for Firefox’s new integrated tools. We have largely kept the expected UI design metaphors, and we have put enormous amounts of effort into making the tools much more performant than Firebug has become.
+
+An additional aspect of Firebug that we take inspiration from is its baked-in extensibility and ecosystem of extensions. Extensibility in tools was a key differentiator for Firebug but also an additional source of friction with users due to increasingly poor performance.
+
+
+## Prior Art
+
+
+### Firebug
+
+Firebug has a diverse and somewhat inactive extension scene:
+
+* http://www.softwareishard.com/blog/extending-firebug/
+
+
+Interesting examples include FirePHP, FireDrupal, Firequery, Illuminations.
+
+### Chrome
+
+Chrome devtools feature limited support:
+* http://developer.chrome.com/extensions/devtools.html
+
+Interesting examples include Batarang, the Coffee Repl, Tincr in particular as it provides the ability to save edited changes back to disk.
+
+## Existing Work
+
+Paul Rouget has created some apis here:
+https://developer.mozilla.org/en-US/docs/Tools/DevToolsAPI
+
+The main existing example is JSTerm.
+
+## User Types
+
+### Firefox Extension developers
+
+We have a fairly stable pool of several thousand extension developers who publish extensions on AMO and are therefore are already familiar with the gecko platform, XUL, Mozilla’s slightly more advanced version of JS, etc. For bonus point, those who have created extensions based on Jetpack also already know it’s own idioms including the node.js-esque CommonJS module system and standard SDK libraries.
+
+### Firebug hackers
+
+Firebug has a small, dedicated community of people that provide extra functionality. In particular this group seems to have a strong interest in monetizing their add-ons to Firebug using a freemium / shareware model or via donations and commercial support, for example:
+1. Illuminations: http://www.illuminations-for-developers.com/
+2. FirePHP: http://www.firephp.org/HQ/Contribute.htm
+
+### Chrome devtools extension developers
+
+There is a strong existing trend of chrome-based web development extensions that leverage the extension apis ( inspectedWindow ). [2] ( network ) [3] ( panels ). An interesting use case is that of passionate web developers attempting to smooth out the developer experience across browsers by offering a similar experience. If there is, for example, a developer or group of developers that want to provide support for a specific new framework or library, they should be able to create a similar development experience regardless of the browser being used, and without wildly disparate implementations.
+
+
+### Web developers
+
+For web developers, the challenge is to offer an environment that is not completely dissimilar from what they are used to. Chrome achieves this particular aim better than we do by mainly using html documents to implement pop-ups or background pages. The SDK adopted CommonJS ( and we benefit here via the popularity of node.js ) however we have been trending towards more web-like development for a couple of years, via experiments like the addon page module as well as newer features like the window module ( that can access DOM apis to main.js ) or the ability to communicate from local documents directly to main.js via the ‘addon’ global.
+
+
+### Adding a tool pane to the toolbox
+
+Developers will want to create their own specialized tool and have it appear within our toolbox just like any of the default tools. 
+
+**Prior art**: The initial prototype of the devtools api already enables us to place a document into the toolbox.
+
+
+ID | Name   | Story    | Usr  | Priority    | 
+--- | --- | :--- | --- | ---
+dtapi-01   | Add Tool | I want to add my own tool to the toolbox.  | All | P1 
+dtapi-02   |Visual Integration    |My custom tool should behave the same as any other tool in terms of how it appears, how it isactivated, how it can be hidden in settings. |All |P1  
+dtapi-03   |Settings integration  |When I look at the settings, it should be clear to me that this custom tool comes from an extension, and which extension it is.  |All  |P1  
+dtapi-04   |Default look  |If I use unstyled content in my tool,the default appearance should match the color scheme and fonts of the developer tools in general.  |All  |P2   
+dtapi-05   |Theme sensitive   |If I use unstyled content in my tool, it should react and match changes to the global devtools ‘theme’.   |All   |P2    
+dtapi-06   |DOM Access    |Scripts run in the tool pane should have access to the DOM of the current active tab.  |All  |P1   
+    
+
+### Integrating with the Web Console
+
+Adding logs to the web console or modifying how existing logs appear is a key feature of many popular Firebug extensions such as FirePHP.
+
+ID|Name|Story|User|Priority
+--- | --- | :--- | --- | ---
+dtapi-07|Log this!|I want to add messages to the web console.|All|
+|dtapi-08|New message type|I want to add a new category of message ‘types’ to the web console, thereby allowing users to either exclusively select or remove my custom messages.|All
+dtapi-09|Adding to a message|For a specific type of messages I want to be able to add additional metadata to the log message.|All|
+|dtapi-10|Adding to the panel|For a specific type of messages I want to be able to add additional metadata to the variable viewer panethat is visible when the log line is clicked.|All|
+|dtapi-11|Highlights!|I want to be able to alter the appearance of specific types of log messages|All|
+
+### Integrating with the Network Monitor
+
+ID|Name|Story|User|Priority
+--- | --- | :--- | --- | ---
+dtapi-12|Action Menu!|I want to add specific actions to a context-menu when a developer right-click on a network request.|All|
+|dtapi-13|Let’s do something with $request|I want to implement an add-on that adds a “open XML response in a new XML View tab” contextmenu item only for xhr requests that actually return an xml imetype.|All|
+
+### Integrating with the App Manage
+
+As we build out our app manager and authoring stories for developers, it seems obvious that we should provide key integration points with code sources such as github. Integrating with a specific 3rd party like Github directly in Firefox seems like an uncomfortable fit. This space in particular is where we should instead provide the right integration points and allow developers to integrate with services as they see fit.
+
+ID|Name|Story|User|Priority
+--- | --- | :--- | --- | ---
+dtapi-14|Github Skeleton|I want to start all new projects using a repository on Github as the base.|All|P2|
+|dtapi-15|Re-start me?|I use node.js and need the local web server to be re-started or otherwise triggered to re-load my app onchanges|All|P2|
+dtapi-16|Shell Tools|I use grunt / yeoman / nodemon etc to manage my asset pipeline and want Firefox’s app manager to be able to use them.|All|P2|
+### Dashboard / Status widgets
+
+This set of requirements assumes we are keeping the developer toolbar and therefore are interested in providing add-on developers access to place live widgets in this area. This assumption is somewhat dangerous as we have also discussed removing the developer toolbar completely. 
+
+Anyway, here are some basic user stories that capture how this could work:
+
+ID|Name|Story|User|Priority
+--- | --- | :--- | --- | ---
+dtapi-17|Add status button|I want to add ‘status indicator ui’ to the developer toolbar so that key pieces of info related to my extension are always visible.|All|P3
+|dtapi-18|Regular Updates|I want to be able to update the content inthe widget continuously.|All|P3
+dtapi-19|Flashers|I want to have some visual indication that an update has happened, so user’s attention will be captured.|All|P3|
+
+### Adding support for $
+
+Web technology and techniques are a fast-moving target, and what is the new hotness this year might get old-n-busted in a few months or even weeks. If we chase trends as a team and try to ship any and all trendy frameworks we are just setting ourselves up for frustration and the thrill of always chasing the new thing. Instead, we should figure out how to enable framework and tooling developers to integrate their new shiny with our solid base.
+
+ID|Name|Story|User|Priority
+--- | --- | :--- | --- | ---
+dtapi-20|New Language?|I’m the lead developer of a hot new COBOL / BASIC syntax language project that compiles to JS, and I would love to be able to create a Firefox extension that integrates my transpiler script, syntax highlighting, debugging support.|All|P1
+dtapi-21|Instant Debugger!|As a student studying programming language design, I would love to be able to be able to bootstrap a full programming environment for my new language by transpiling to JS and implementing tools support in a Firefox extension.|All|P
+|dtapi-22|Live Stylus|All of the designers at my firm use stylus for styling content, and we need to be able to live-code style tweaks and seem them on-device.|All|P1
+|dtapi-23|Syntax Guess|If I paste stylus or sass into the style editor, Firefox should try to guess what the syntax is based on some heuristics.|All|P2||dtapi-24|Syntax support|I should be able to add stylus or sass support to the style editor and force Firefox to treat a given file or buffer as if it was that language, overriding defaults.|All|P1
+
+### Integrating with external tools
+
+Now that the entire tool suite can be accessed remotely, we need to identify compelling integration types and provide the developer community with well-maintained and documented sample implementations.
+
+ID|Name|Story|User|Priority
+--- | --- | :--- | --- | ---
+dtapi-25|Integration docs|As a developer looking to integrate Firefox with $SomeIDE, I would like to be able to access documentation and tutorials on how to connect my application to Firefox via the remote protocol.|All
+dtapi-26|Integration Sample|As a developer I would like a well documented sample implementation of each type of remote protocol integration that is available that I can easily run on my own system.|All
+
+### Connecting to non-Gecko stacks
+
+In order to help developers debugging modern, complex single-page web apps it could be beneficial to be able to  debug both client and server code in the same tools.
+
+ID|Name|Story|User|Priority
+--- | --- | :--- | --- | ---
+dtapi-27|Node Support|As a full-stack developer I would love to be able to debug both client and server-side code in my express app.|All
+dtapi-28|Attach from a process|In my web stack, I have not only webservers but also worker processes running, and in order to debug he full stack I need to be able to get the worker scripts to contact the debugger as well.|All
