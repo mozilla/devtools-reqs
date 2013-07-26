@@ -36,7 +36,7 @@ Interesting examples include Batarang, the Coffee Repl, Tincr in particular as i
 Paul Rouget has created some apis here:
 https://developer.mozilla.org/en-US/docs/Tools/DevToolsAPI
 
-The main existing example is JSTerm.
+The main existing example is [JSTerm](https://github.com/paulrouget/firefox-jsterm).
 
 ## User Types
 
@@ -126,7 +126,9 @@ ID|Name|Story|User|Priority
 dtapi-20|New Language?|I’m the lead developer of a hot new COBOL / BASIC syntax language project that compiles to JS, and I would love to be able to create a Firefox extension that integrates my transpiler script, syntax highlighting, debugging support.|All|P1
 dtapi-21|Instant Debugger!|As a student studying programming language design, I would love to be able to be able to bootstrap a full programming environment for my new language by transpiling to JS and implementing tools support in a Firefox extension.|All|P
 |dtapi-22|Live Stylus|All of the designers at my firm use stylus for styling content, and we need to be able to live-code style tweaks and seem them on-device.|All|P1
-|dtapi-23|Syntax Guess|If I paste stylus or sass into the style editor, Firefox should try to guess what the syntax is based on some heuristics.|All|P2||dtapi-24|Syntax support|I should be able to add stylus or sass support to the style editor and force Firefox to treat a given file or buffer as if it was that language, overriding defaults.|All|P1
+|dtapi-23|Syntax Guess|If I paste stylus or sass into the style editor, Firefox should try to guess what the syntax is based on some heuristics.|All|P2|
+|dtapi-24|Syntax support|I should be able to add stylus or sass support to the style editor and force Firefox to treat a given file or buffer as if it was that language, overriding defaults.|All|P1
+|dtapi-25|Custom Object Representation|I am a JS framework developer and I want to customize the output of my framework's objects in the webconsole/variables view *anywhere* they are displayed.|All|P2|
 
 ### Integrating with external tools
 
@@ -134,8 +136,8 @@ Now that the entire tool suite can be accessed remotely, we need to identify com
 
 ID|Name|Story|User|Priority
 --- | --- | :--- | --- | ---
-dtapi-25|Integration docs|As a developer looking to integrate Firefox with $SomeIDE, I would like to be able to access documentation and tutorials on how to connect my application to Firefox via the remote protocol.|All
-dtapi-26|Integration Sample|As a developer I would like a well documented sample implementation of each type of remote protocol integration that is available that I can easily run on my own system.|All
+dtapi-26|Integration docs|As a developer looking to integrate Firefox with $SomeIDE, I would like to be able to access documentation and tutorials on how to connect my application to Firefox via the remote protocol.|All
+dtapi-27|Integration Sample|As a developer I would like a well documented sample implementation of each type of remote protocol integration that is available that I can easily run on my own system.|All
 
 ### Connecting to non-Gecko stacks
 
@@ -143,5 +145,5 @@ In order to help developers debugging modern, complex single-page web apps it co
 
 ID|Name|Story|User|Priority
 --- | --- | :--- | --- | ---
-dtapi-27|Node Support|As a full-stack developer I would love to be able to debug both client and server-side code in my express app.|All
-dtapi-28|Attach from a process|In my web stack, I have not only webservers but also worker processes running, and in order to debug he full stack I need to be able to get the worker scripts to contact the debugger as well.|All
+dtapi-28|Node Support|As a full-stack developer I would love to be able to debug both client and server-side code in my express app.|All
+dtapi-29|Attach from a process|In my web stack, I have not only webservers but also worker processes running, and in order to debug he full stack I need to be able to get the worker scripts to contact the debugger as well.|All
