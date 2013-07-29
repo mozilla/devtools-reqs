@@ -60,6 +60,7 @@ There is a strong existing trend of chrome-based web development extensions that
 For web developers, the challenge is to offer an environment that is not completely dissimilar from what they are used to. Chrome achieves this particular aim better than we do by mainly using html documents to implement pop-ups or background pages. The SDK adopted CommonJS ( and we benefit here via the popularity of node.js ) however we have been trending towards more web-like development for a couple of years, via experiments like the addon page module as well as newer features like the window module ( that can access DOM apis to main.js ) or the ability to communicate from local documents directly to main.js via the ‘addon’ global.
 
 
+
 ### Adding a tool pane to the toolbox
 
 Developers will want to create their own specialized tool and have it appear within our toolbox just like any of the default tools. 
@@ -96,7 +97,7 @@ ID|Name|Story|User|Priority
 dtapi-12|Action Menu!|I want to add specific actions to a context-menu when a developer right-click on a network request.|All|
 |dtapi-13|Let’s do something with $request|I want to implement an add-on that adds a “open XML response in a new XML View tab” contextmenu item only for xhr requests that actually return an xml imetype.|All|
 
-### Integrating with the App Manage
+### Integrating with the App Manager
 
 As we build out our app manager and authoring stories for developers, it seems obvious that we should provide key integration points with code sources such as github. Integrating with a specific 3rd party like Github directly in Firefox seems like an uncomfortable fit. This space in particular is where we should instead provide the right integration points and allow developers to integrate with services as they see fit.
 
@@ -105,6 +106,7 @@ ID|Name|Story|User|Priority
 dtapi-14|Github Skeleton|I want to start all new projects using a repository on Github as the base.|All|P2|
 |dtapi-15|Re-start me?|I use node.js and need the local web server to be re-started or otherwise triggered to re-load my app onchanges|All|P2|
 dtapi-16|Shell Tools|I use grunt / yeoman / nodemon etc to manage my asset pipeline and want Firefox’s app manager to be able to use them.|All|P2|
+
 ### Dashboard / Status widgets
 
 This set of requirements assumes we are keeping the developer toolbar and therefore are interested in providing add-on developers access to place live widgets in this area. This assumption is somewhat dangerous as we have also discussed removing the developer toolbar completely. 
@@ -130,14 +132,23 @@ dtapi-21|Instant Debugger!|As a student studying programming language design, I 
 |dtapi-24|Syntax support|I should be able to add stylus or sass support to the style editor and force Firefox to treat a given file or buffer as if it was that language, overriding defaults.|All|P1
 |dtapi-25|Custom Object Representation|I am a JS framework developer and I want to customize the output of my framework's objects in the webconsole/variables view *anywhere* they are displayed.|All|P2|
 
+### GCLI
+
+GCLI and the developer toolbar are a powerful keyboard-driven way to interact with the developer tools, and it is already very simple to write and publish custom GCLI commands as extensions. We can make it even simpler.
+
+ID | Name   | Story    | User  | Priority
+--- | --- | :--- | --- | ---
+dtapi-26|Expose to GCLI|As a user I want to expose functions from my extension as GCLI commands.|All|P1
+dtapi-27|Export to Extension|If I write a script in scratchpad that automates something in Firefox, I should be able to easily export it as an installable extension.|All|P3
+
 ### Integrating with external tools
 
 Now that the entire tool suite can be accessed remotely, we need to identify compelling integration types and provide the developer community with well-maintained and documented sample implementations.
 
 ID|Name|Story|User|Priority
 --- | --- | :--- | --- | ---
-dtapi-26|Integration docs|As a developer looking to integrate Firefox with $SomeIDE, I would like to be able to access documentation and tutorials on how to connect my application to Firefox via the remote protocol.|All
-dtapi-27|Integration Sample|As a developer I would like a well documented sample implementation of each type of remote protocol integration that is available that I can easily run on my own system.|All
+dtapi-28|Integration docs|As a developer looking to integrate Firefox with $SomeIDE, I would like to be able to access documentation and tutorials on how to connect my application to Firefox via the remote protocol.|All
+dtapi-29|Integration Sample|As a developer I would like a well documented sample implementation of each type of remote protocol integration that is available that I can easily run on my own system.|All
 
 ### Connecting to non-Gecko stacks
 
@@ -145,5 +156,5 @@ In order to help developers debugging modern, complex single-page web apps it co
 
 ID|Name|Story|User|Priority
 --- | --- | :--- | --- | ---
-dtapi-28|Node Support|As a full-stack developer I would love to be able to debug both client and server-side code in my express app.|All
-dtapi-29|Attach from a process|In my web stack, I have not only webservers but also worker processes running, and in order to debug he full stack I need to be able to get the worker scripts to contact the debugger as well.|All
+dtapi-30|Node Support|As a full-stack developer I would love to be able to debug both client and server-side code in my express app.|All
+dtapi-31|Attach from a process|In my web stack, I have not only webservers but also worker processes running, and in order to debug he full stack I need to be able to get the worker scripts to contact the debugger as well.|All
