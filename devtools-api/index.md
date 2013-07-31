@@ -1,7 +1,6 @@
 # The Developer Tools API - PRD DRAFT
 
-*Jeff Griffiths / Mozilla*
-
+*Firefox Developer Tools Team*
 
 ## Background
 
@@ -11,9 +10,7 @@ As well, Firebug’s strengths and weaknesses have been hugely influential on th
 
 An additional aspect of Firebug that we take inspiration from is its baked-in extensibility and ecosystem of extensions. Extensibility in tools was a key differentiator for Firebug but also an additional source of friction with users due to increasingly poor performance.
 
-
 ## Prior Art
-
 
 ### Firebug
 
@@ -59,8 +56,6 @@ There is a strong existing trend of chrome-based web development extensions that
 
 For web developers, the challenge is to offer an environment that is not completely dissimilar from what they are used to. Chrome achieves this particular aim better than we do by mainly using html documents to implement pop-ups or background pages. The SDK adopted CommonJS ( and we benefit here via the popularity of node.js ) however we have been trending towards more web-like development for a couple of years, via experiments like the addon page module as well as newer features like the window module ( that can access DOM apis to main.js ) or the ability to communicate from local documents directly to main.js via the ‘addon’ global.
 
-
-
 ### Adding a tool pane to the toolbox
 
 Developers will want to create their own specialized tool and have it appear within our toolbox just like any of the default tools. 
@@ -96,6 +91,7 @@ ID|Name|Story|User|Priority
 --- | --- | :--- | --- | ---
 dtapi-12|Action Menu!|I want to add specific actions to a context-menu when a developer right-click on a network request.|All|
 |dtapi-13|Let’s do something with $request|I want to implement an add-on that adds a “open XML response in a new XML View tab” contextmenu item only for xhr requests that actually return an xml imetype.|All|
+|dtapi-14|Pluggable response view|I want to be able to visualize response bodies|All|
 
 ### Integrating with the App Manager
 
@@ -140,21 +136,3 @@ ID | Name   | Story    | User  | Priority
 --- | --- | :--- | --- | ---
 dtapi-26|Expose to GCLI|As a user I want to expose functions from my extension as GCLI commands.|All|P1
 dtapi-27|Export to Extension|If I write a script in scratchpad that automates something in Firefox, I should be able to easily export it as an installable extension.|All|P3
-
-### Integrating with external tools
-
-Now that the entire tool suite can be accessed remotely, we need to identify compelling integration types and provide the developer community with well-maintained and documented sample implementations.
-
-ID|Name|Story|User|Priority
---- | --- | :--- | --- | ---
-dtapi-28|Integration docs|As a developer looking to integrate Firefox with $SomeIDE, I would like to be able to access documentation and tutorials on how to connect my application to Firefox via the remote protocol.|All
-dtapi-29|Integration Sample|As a developer I would like a well documented sample implementation of each type of remote protocol integration that is available that I can easily run on my own system.|All
-
-### Connecting to non-Gecko stacks
-
-In order to help developers debugging modern, complex single-page web apps it could be beneficial to be able to  debug both client and server code in the same tools.
-
-ID|Name|Story|User|Priority
---- | --- | :--- | --- | ---
-dtapi-30|Node Support|As a full-stack developer I would love to be able to debug both client and server-side code in my express app.|All
-dtapi-31|Attach from a process|In my web stack, I have not only webservers but also worker processes running, and in order to debug he full stack I need to be able to get the worker scripts to contact the debugger as well.|All
