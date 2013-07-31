@@ -1,5 +1,7 @@
 # Browser Resource Tool
 
+*Firefox Developer Tools Team*
+
 The purpose of these requirements is to solve our lack of any tooling to examine the various data sources web applications use, including: Cookies, Localstorage, IndexedDB, Session and Appcache. This grouping (as well as the non-standard WebSQL) are shown here as implemented in Chrome’s ‘resources’ tool:
 
 As the web gets increasingly mobile and offline-oriented and we explore the technologies available to help enable mobile-first and offline-aware apps, our ability to cache data in the browser and sync it opportunistically with servers becomes critical. Worse, existing standard APIs such as localstorage and appcache frustrate users who find them either difficult to use, slow, or both.

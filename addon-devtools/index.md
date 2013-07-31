@@ -1,5 +1,7 @@
 # Add-on Developer Tools - DRAFT
 
+*Firefox Developer Tools Team*
+
 As a content type hosted on AMO, extensions have never been more popular. We host thousands of extensions and downloads metrics consistently clock in at 30 million per month or so.
 
 At the same time, Mozilla has yet to produce a set of developer tools that addresses the requirements of developers. printf-style debugging is basic at best thanks to the ancient Error Console, no actual step & breakpoint debugging experience, and a difficult-to-debug technology stack.

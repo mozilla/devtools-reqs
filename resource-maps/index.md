@@ -1,5 +1,7 @@
 # Resource Maps
 
+*Firefox Developer Tools Team*
+
 ## Initial goals for MVP
 
 At it’s most basic, resource maps allow us to map a localhost url to a folder on the filesystem and then provide editing functionality to improve the workflow of the developer. In particular: editing or processing source files and reloading the site based on file changes.
