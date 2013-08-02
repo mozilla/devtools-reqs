@@ -4,7 +4,7 @@
 
 There is an increasing proliferation of alternate syntaxes being used by web developers that rely on command-line scripts to transform the alternate syntax
 
-## More popular examples
+## Selected Popular Examples
 
 * Coffeescript ( => JS )
 * Livescript ( => JS )
@@ -70,7 +70,7 @@ The challenges to tooling presented by the stack of tools developers might be us
 * similarly html files are generated from jade and css stylesheets are generated from stylus
 * a node.js-based file watcher built into the local development stack
 
-For tools, the key capability here is that (hopefully) all of these transpilation processes include sourcemap metadata.
+For tools, the key capability here is that (hopefully) all of these transpilation processes provide sourcemap metadata. SourceMap support is how we provide tooling for these alternative syntaxes in a generic way without having to bake in support for any specific syntax.
 
 ### Deployment techniques
 
@@ -89,3 +89,15 @@ This is essentially an old PHP / Perl idea called 'funky caching', a resource is
 The hope is that you have a way of taking your dev environment files and wrapping them up into concisely built and minified JavaScript and CSS files."*
 
 There seems like a fairly stark difference in opinion here, but the difference in approaches really amounts to deciding when you run the transpilation code for a given resource, and how you cache the result. The latter approach favours pre-deploy scripts that cache on the filesystem as the source of truth, whereas the former instead just processes the source on first request and then uses things like memcache or varnish to serve the results.
+
+### How can Firefox Developer Tools help?
+
+Where we are at currently is that we have the critical initial step  that allows us to read sourcemaps and let developers and our tools view and debug these sources. For our next trick we need to expose a generic way for developers to specific how alt-syntax sources are transpiled for the web platform. An early prototype of how this might work can be seen in Paul Rouget's [JSTerm](https://github.com/paulrouget/firefox-jsterm/) extension, where a contributor added coffeescript and livescript support.
+
+JSTerm's coffeescript support is likely the [easiest possible situation](https://github.com/paulrouget/firefox-jsterm/blob/master/chrome/jsterm.js#L24-30) - the coffeescript transpiler can be loaded in the extension directly as a JS library. The larger field of transpiling implementations is not restricted to JS or node, and there are generally 3 classes of integration points possible:
+
+1. directly load jS-implemented modules
+2. shell out to command-line scripts for transpilers that cannot be run in an extension
+3. provide some mechanism for communicating via some network channel with services that might
+
+The minimum viable feature could be allowing extensions to supply a JS-implemented transpiler library that can be run by the extension. Thinking forward, this establishes a common interface for Transpilers that we would then implement for 2) and 3). If we're successful anyone creating an alternate syntax for web developement should be able to create a Firefox extension that provides a complete tooling solution.
