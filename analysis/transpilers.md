@@ -68,22 +68,24 @@ The challenges to tooling presented by the stack of tools developers might be us
 * a developer is writing all of their code in alternative syntaxes: coffeescript, stylus and jade.
 * they are using the require.js module system to load script dependencies, and when the site is deployed to production it is concatenated into 2 files and then minified.
 * similarly html files are generated from jade and css stylesheets are generated from stylus
-* a node.js-based file watcher built into the local development 
+* a node.js-based file watcher built into the local development stack
+
+For tools, the key capability here is that (hopefully) all of these transpilation processes include sourcemap metadata.
 
 ### Deployment techniques
 
 Two key related blog posts:
 
-1) "No Buids": http://www.futurealoof.com/posts/no-builds.html
+1) ["No Builds"](http://www.futurealoof.com/posts/no-builds.html)
 
 "The routes we write for resources that would normally be the output of a build process we generate the first time they are requested and cache them in memory indefinitely..."
 
 This is essentially an old PHP / Perl idea called 'funky caching', a resource is requested, generated the first time and then cached until it is no longer valid.
 
-2) "Deploying JavaScript Applications": http://alexsexton.com/blog/2013/03/deploying-javascript-applications/
+2) ["Deploying JavaScript Applications"](http://alexsexton.com/blog/2013/03/deploying-javascript-applications/)
 
-"Locally, you might run a static server with some AMD modules, or a “precompile server” in front of some sass and coffeescript, or browserify with commonjs modules. Whatever you’re doing in development is your choice and not the topic du jour.
+*"Locally, you might run a static server with some AMD modules, or a “precompile server” in front of some sass and coffeescript, or browserify with commonjs modules. Whatever you’re doing in development is your choice and not the topic du jour.
 
-The hope is that you have a way of taking your dev environment files and wrapping them up into concisely built and minified JavaScript and CSS files."
+The hope is that you have a way of taking your dev environment files and wrapping them up into concisely built and minified JavaScript and CSS files."*
 
 There seems like a fairly stark difference in opinion here, but the difference in approaches really amounts to deciding when you run the transpilation code for a given resource, and how you cache the result. The latter approach favours pre-deploy scripts that cache on the filesystem as the source of truth, whereas the former instead just processes the source on first request and then uses things like memcache or varnish to serve the results.
