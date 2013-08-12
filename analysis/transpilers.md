@@ -100,4 +100,4 @@ JSTerm's coffeescript support is likely the [easiest possible situation](https:/
 2. shell out to command-line scripts for transpilers that cannot be run in an extension
 3. provide some mechanism for communicating via some network channel with services that might
 
-The minimum viable feature could be allowing extensions to supply a JS-implemented transpiler library that can be run by the extension. Thinking forward, this establishes a common interface for Transpilers that we would then implement for 2) and 3). If we're successful anyone creating an alternate syntax for web developement should be able to create a Firefox extension that provides a complete tooling solution.
+The minimum viable feature could be allowing extensions to supply a JS-implemented transpiler library that can be run by the extension. Thinking forward, this establishes a common interface for Transpilers that we would then implement for 2) and 3). A goal for this work could be: anyone creating an alternate syntax for web developement should be able to create a Firefox extension that provides a compelling tooling solution.
