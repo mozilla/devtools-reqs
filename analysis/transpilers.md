@@ -10,6 +10,7 @@ There is an increasing proliferation of alternate syntaxes being used by web dev
 * Livescript ( => JS )
 * ClojureScript ( => JS )
 * Dart ( native *or* JS )
+* TypeScript ( => JS )
 * SASS ( => CSS )
 * LESS ( => CSS )
 * Stylus ( => CSS )
