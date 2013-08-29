@@ -51,7 +51,7 @@ Chrome DevTools support for extensions is minimal:
 
 ### Epic: Hacking Reddit
 
-Joe is a recently unemployed web developer and part-time Reddit admin. He has a lot of spare time on his hands and has a long list of personal gripes around Reddit's usability and...
+Joe is a recently unemployed web developer and part-time Reddit admin. He has a lot of spare time on his hands and has a long list of personal gripes around Reddit's usability, so he starts investigating how to augment the Reddit interface via browser extensions. As a Firefox user, he opts to build a Firefox extension first using the Jetpack.
 
 ### Console logging
 
@@ -72,6 +72,7 @@ Debugging main.js and similar scripts works in the browser console, with some ca
 |xpi-tools-01|Focus|I want to be able to focus on my add-on specifically without being distracted by other Firefox source code.|All|P1
 |xpi-tools-02|Initialization|I need to be able to debug my extension’s initialization code.|All|P1
 |xpi-tools-03|Standards|The debugger should honor the pseudo standard ‘debugger;’ statement and treat it as a breakpoint.|All|P2
+|xpi-tools-04|Content Scripts|The debugger should be able to attach to content scripts.|All|P1|
   
 ###Project Management
 
@@ -79,16 +80,16 @@ Projects  should be as simple as possible, but no simpler!
 
 |ID | Name   | Story    | User  | Priority    | 
 |--- | --- | :--- | --- | ---|
-|xpi-tools-|Get Started|I should be able to start a new project via the UI or gcli.|All|P1
-|xpi-tools-|Find a place.|I should be able to pick or create a new project folder.|All|P1
-|xpi-tools-|Tweak the Meta|I should be able to initially define or later adjust all of my project meta-data ( add-on author, version, etc ) via the UI|All|P1
-|xpi-tools-|Publish|I want to be able to upload an extension version directly to AMO from the UI.|All|P2
-|xpi-tools-|Dev Cycles|I want to be able to reload, test or package an extension directly from the UI via the mouse or key commands.|All|P1
-|xpi-tools-|Boilerplate|As a developer I want to be able to generate an initial skeletal add-on project.|All|P1
-|xpi-tools-|Useful Boilerplate|The code produced by default in this process should be both as minimal as possible an|well documented.|All|P2
-|xpi-tools-|My Boilerplate|It should be possible to provide a directory, archive or url as an alternative base template for starting new projects.|All|P3
-|xpi-tools-|Hand-code the Meta.|I need to directly edit package.json properties from the UI.|All|P2
-|xpi-tools-|Save me from myself.|When editing package.json, the project manager should check the JSON syntax and report errors and warnings.|All|P2|
+|xpi-tools-05|Get Started|I should be able to start a new project via the UI or gcli.|All|P1
+|xpi-tools-06|Find a place.|I should be able to pick or create a new project folder.|All|P1
+|xpi-tools-07|Tweak the Meta|I should be able to initially define or later adjust all of my project meta-data ( add-on author, version, etc ) via the UI|All|P1
+|xpi-tools-08|Publish|I want to be able to upload an extension version directly to AMO from the UI.|All|P2
+|xpi-tools-09|Dev Cycles|I want to be able to reload, test or package an extension directly from the UI via the mouse or key commands.|All|P1
+|xpi-tools-10|Boilerplate|As a developer I want to be able to generate an initial skeletal add-on project.|All|P1
+|xpi-tools-11|Useful Boilerplate|The code produced by default in this process should be both as minimal as possible an|well documented.|All|P2
+|xpi-tools-12|My Boilerplate|It should be possible to provide a directory, archive or url as an alternative base template for starting new projects.|All|P3
+|xpi-tools-13|Hand-code the Meta.|I need to directly edit package.json properties from the UI.|All|P2
+|xpi-tools-14|Save me from myself.|When editing package.json, the project manager should check the JSON syntax and report errors and warnings.|All|P2|
 
 ###Authoring
 
@@ -96,8 +97,9 @@ Currently, we have no story for actually writing code.
 
 |ID | Name   | Story    | User  | Priority    | 
 |--- | --- | :--- | --- | ---|
-|xpi-tools-|Code now!|I want to be able to quickly hack on and prototype an extension.|All|P1
-|xpi-tools-|Back me up.|My prototype code should be saved to the filesystem as an extension even if we don’t yet have a proper extension project.|All|P1||xpi-tools-|Core SDK Completion.|The built-in editor should know about and offer completion for the SDK’s built-in APIs|All|P2||xpi-tools-|3rd party completion.|The built-in editor should know about and offer completion for any third party modules being used in the project.|All|P3|
+|xpi-tools-15|Code now!|I want to be able to quickly hack on and prototype an extension.|All|P1
+|xpi-tools-16|Back me up.|My prototype code should be saved to the filesystem as an extension even if we don’t yet have a proper extension project.|All|P1||xpi-tools-|Core SDK Completion.|The built-in editor should know about and offer completion for the SDK’s built-in APIs|All|P2|
+|xpi-tools-17|3rd party completion.|The built-in editor should know about and offer completion for any third party modules being used in the project.|All|P3|
 
 ###Packaging
 
@@ -105,9 +107,9 @@ Over the history of Firefox extensions, Mozilla developers have always been real
 
 |ID | Name   | Story    | User  | Priority    | 
 |--- | --- | :--- | --- | ---|
-|xpi-tools-|Fast Hacking|I need to be able to load, unload or reload my in-progress extension without re-starting the browser.|All|P1
-|xpi-tools-|Fast Packing|I need to be able to package the extension via a mouse action or key command.|All|P1
-|xpi-tools-|Protection|The packager should validate the extension project to ensure that there are no syntax errors or other fatal errors prior to loading, packaging or testing an extension project.|All|P2|
+|xpi-tools-18|Fast Hacking|I need to be able to load, unload or reload my in-progress extension without re-starting the browser.|All|P1
+|xpi-tools-19|Fast Packing|I need to be able to package the extension via a mouse action or key command.|All|P1
+|xpi-tools-20|Protection|The packager should validate the extension project to ensure that there are no syntax errors or other fatal errors prior to loading, packaging or testing an extension project.|All|P2|
 
 ### Testing
 
@@ -115,6 +117,7 @@ The SDK’s testing framework is a very necessary part of its development and we
 
 |ID | Name   | Story    | User  | Priority    | 
 |--- | --- | :--- | --- | ---|
-|xpi-tools-|Testing support|If tests exist for an extension project, it should be possible to run them via a mouse action or key-command.|All|P2
-|xpi-tools-|Auto-tests!|I’d like to have tests run every time the js/html/css files in my extension project change.|All|P3
-|xpi-tools-|Visual Feedback|Current test status should be displayed in the UI.|All|P3|
+|xpi-tools-21|Testing support|If tests exist for an extension project, it should be possible to run them via a mouse action or key-command.|All|P2
+|xpi-tools-22|Auto-tests!|I’d like to have tests run every time the js/html/css files in my extension project change.|All|P3
+|xpi-tools-23|Visual Feedback|Current test status should be displayed in the UI.|All|P3|
+
