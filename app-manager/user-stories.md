@@ -7,7 +7,7 @@
 Simulator-001|Basic App|As a FxOS app developer I want to be able to use my desktop computer to design and develop Open Web apps |App developer|1
 Simulator-002|APIs | As a web developer or app developer I need to be able to implement and test Web APIs in the same window, tab, or view as my app|Web developer, App developer|1
 Simulator-003|Phonegap Development|As a Phonegap developer I want to be able to deploy my existing Phonegap app to Firefox OS|Mobile app developer|1
-Simulator-004Unity Port As a Unity 3D developer I want to be able to deploy my existing web app projects to Firefox OSGame developer3
+Simulator-004|Unity Port|As a Unity 3D developer I want to be able to deploy my existing web app projects to Firefox OS|Game developer|3
 Simulator-005|Game performance tuning|As a game developer I need to be able to step through and debug the animation clock frame by frame.|Game developer|3
 Simulator-006|Develop and Deploy|As a web app developer, I need to be able to integrate a ‘build’ step in order to be run in the simulator.|App developer|2
 Simulator-007|Device APIs|As an app developer I need to be able to incorporate and test all FFOS device APIs that closely mimic on-device behavior of hardware, including vibration, gyroscope, accelerometer, microphone, etc.  |Web developer|1
