@@ -29,6 +29,7 @@ It's fairly easy to take a [file watcher script](https://github.com/canuckistani
 
 ### User Types
 
+ - Web Dev Generalists: jack of all trades, maybe a little fuzzy on the hoisting problem or the darker corners of CSS3
  - CSS Stylists: front-end / production developers who mainly create markup, images and CSS based on Photoshop layouts and some scripting.
  - JS Framework-oriented Hacker: professional web developers working for all types of companies hacking together dynamic / single-page apps using frameworks & libraries like Backbone, Angular and Ember alongside widget sets like topcoat.io.
  - Mobile App developers: developers working on Firefox OS, Mobile Web Apps, Phonegap developers, chrome web app developers, etc. Key differntations from previous user types is a focus on memory limits, performance and on-device tools support.
