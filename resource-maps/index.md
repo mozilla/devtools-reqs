@@ -50,7 +50,7 @@ An app developer updates a local copy of her new app’s github repo and starts 
 Something is not quite right with how the css looks so she switches to Nightly and inspects some of the elements in the navigation bar. She clicks on the link to the file and line number in the relevant sass file, makes some edits and hits Cmd+S to save the file. Nightly has read the projectmap.json file as well as the sourcemap captured in the generated css file so it knows exactly where to save the sass to. On save Firefox is also smart enough to run grunt again to re-generate the css, and then it reloads the css into the current page.
 
 ### User stories table
-ID|Name|Story|Scenario|Priority
+
 |ID | Name   | Story    | User  | Priority 
 --- | --- | :--- | --- | ---
 ResourceMap-001|Simple Mapping|When running a ‘localhost’ web server to create a web app, developers are able to map that host to the directory that contains the html, js and css files for the site.|All Local|1
