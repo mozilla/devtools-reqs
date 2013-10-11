@@ -63,45 +63,39 @@ Developers will want to create their own specialized tool and have it appear wit
 **Prior art**: The initial prototype of the devtools api already enables us to place a document into the toolbox.
 
 
-ID | Name   | Story    | Usr  | Priority    | 
---- | --- | :--- | --- | ---
-dtapi-01   | Add Tool | I want to add my own tool to the toolbox.  | All | P1 
-dtapi-02   |Visual Integration    |My custom tool should behave the same as any other tool in terms of how it appears, how it isactivated, how it can be hidden in settings. |All |P1  
-dtapi-03   |Settings integration  |When I look at the settings, it should be clear to me that this custom tool comes from an extension, and which extension it is.  |All  |P1  
-dtapi-04   |Default look  |If I use unstyled content in my tool,the default appearance should match the color scheme and fonts of the developer tools in general.  |All  |P2   
-dtapi-05   |Theme sensitive   |If I use unstyled content in my tool, it should react and match changes to the global devtools ‘theme’.   |All   |P2    
-dtapi-06   |DOM Access    |Scripts run in the tool pane should have access to the DOM of the current active tab.  |All  |P1   
-dtapi-06   |Inspector Panel    |I should be able to add a new panel to the DOM Inspector's side panel|All  |P1
+
+* I want to add my own tool to the toolbox.
+* My custom tool should behave the same as any other tool in terms of how it appears, how it is activated, how it can be hidden in settings
+* When I look at the settings, it should be clear to me that this custom tool comes from an extension, and which extension it is.
+* If I use unstyled content in my tool,the default appearance should match the color scheme and fonts of the developer tools in general.
+* If I use unstyled content in my tool, it should react and match changes to the global devtools ‘theme’
+* Scripts run in the tool pane should have access to the DOM of the current active tab.
+*Inspector Panel    |I should be able to add a new panel to the DOM Inspector's side panel|All  |P1
 
 ### Integrating with the Web Console
 
 Adding logs to the web console or modifying how existing logs appear is a key feature of many popular Firebug extensions such as FirePHP.
 
-ID|Name|Story|User|Priority
---- | --- | :--- | --- | ---
-dtapi-07|Log this!|I want to add messages to the web console.|All|
-|dtapi-08|New message type|I want to add a new category of message ‘types’ to the web console, thereby allowing users to either exclusively select or remove my custom messages.|All
-dtapi-09|Adding to a message|For a specific type of messages I want to be able to add additional metadata to the log message.|All|
-|dtapi-10|Adding to the panel|For a specific type of messages I want to be able to add additional metadata to the variable viewer panethat is visible when the log line is clicked.|All|
-|dtapi-11|Highlights!|I want to be able to alter the appearance of specific types of log messages|All|
+* I want to add messages to the web console
+* I want to add a new category of message ‘types’ to the web console, thereby allowing users to either exclusively select or remove my custom messages.
+* For a specific type of messages I want to be able to add additional metadata to the log message.
+* For a specific type of messages I want to be able to add additional metadata to the variable viewer pane that is visible when the log line is clicked.
+* I want to be able to alter the appearance of specific types of log messages.
 
 ### Integrating with the Network Monitor
 
-ID|Name|Story|User|Priority
---- | --- | :--- | --- | ---
-dtapi-12|Action Menu!|I want to add specific actions to a context-menu when a developer right-click on a network request.|All|
-|dtapi-13|Let’s do something with $request|I want to implement an add-on that adds a “open XML response in a new XML View tab” contextmenu item only for xhr requests that actually return an xml imetype.|All|
-|dtapi-14|Pluggable response view|I want to be able to visualize response bodies|All|
+* I want to add specific actions to a context-menu when a developer right-click on a network request.
+* Let’s do something with $request|I want to implement an add-on that adds a “open XML response in a new XML View tab” contextmenu item only for xhr requests that actually return an xml imetype.|All|
+* I want to be able to add custom output modes to let users visualize response bodies
 
 ### Integrating with the App Manager
 
 As we build out our app manager and authoring stories for developers, it seems obvious that we should provide key integration points with code sources such as github. Integrating with a specific 3rd party like Github directly in Firefox seems like an uncomfortable fit. This space in particular is where we should instead provide the right integration points and allow developers to integrate with services as they see fit.
 
-ID|Name|Story|User|Priority
---- | --- | :--- | --- | ---
-dtapi-14|Github Skeleton|I want to start all new projects using a repository on Github as the base.|All|P2|
-|dtapi-15|Re-start me?|I use node.js and need the local web server to be re-started or otherwise triggered to re-load my app onchanges|All|P2|
-dtapi-16|Shell Tools|I use grunt / yeoman / nodemon etc to manage my asset pipeline and want Firefox’s app manager to be able to use them.|All|P2|
+
+* I want to start all new projects using a repository on Github as the base. 
+* I use node.js and need the local web server to be re-started or otherwise triggered to re-load my app on file changes
+* I use grunt / yeoman / nodemon etc to manage my asset pipeline and want Firefox’s app manager to be able to use them. 
 
 ### Dashboard / Status widgets
 
@@ -109,30 +103,25 @@ This set of requirements assumes we are keeping the developer toolbar and theref
 
 Anyway, here are some basic user stories that capture how this could work:
 
-ID|Name|Story|User|Priority
---- | --- | :--- | --- | ---
-dtapi-17|Add status button|I want to add ‘status indicator ui’ to the developer toolbar so that key pieces of info related to my extension are always visible.|All|P3
-|dtapi-18|Regular Updates|I want to be able to update the content inthe widget continuously.|All|P3
-dtapi-19|Flashers|I want to have some visual indication that an update has happened, so user’s attention will be captured.|All|P3|
+* I want to add ‘status indicator ui’ to the developer toolbar so that key pieces of info related to my extension are always visible
+* I want to be able to update the content in the widget continuously.
+* I want to have some visual indication that an update has happened, so user’s attention will be captured.
 
 ### Adding support for $
 
 Web technology and techniques are a fast-moving target, and what is the new hotness this year might get old-n-busted in a few months or even weeks. If we chase trends as a team and try to ship any and all trendy frameworks we are just setting ourselves up for frustration and the thrill of always chasing the new thing. Instead, we should figure out how to enable framework and tooling developers to integrate their new shiny with our solid base.
 
-ID|Name|Story|User|Priority
---- | --- | :--- | --- | ---
-dtapi-20|New Language?|I’m the lead developer of a hot new COBOL / BASIC syntax language project that compiles to JS, and I would love to be able to create a Firefox extension that integrates my transpiler script, syntax highlighting, debugging support.|All|P1
-dtapi-21|Instant Debugger!|As a student studying programming language design, I would love to be able to be able to bootstrap a full programming environment for my new language by transpiling to JS and implementing tools support in a Firefox extension.|All|P
-|dtapi-22|Live Stylus|All of the designers at my firm use stylus for styling content, and we need to be able to live-code style tweaks and seem them on-device.|All|P1
-|dtapi-23|Syntax Guess|If I paste stylus or sass into the style editor, Firefox should try to guess what the syntax is based on some heuristics.|All|P2|
-|dtapi-24|Syntax support|I should be able to add stylus or sass support to the style editor and force Firefox to treat a given file or buffer as if it was that language, overriding defaults.|All|P1
-|dtapi-25|Custom Object Representation|I am a JS framework developer and I want to customize the output of my framework's objects in the webconsole/variables view *anywhere* they are displayed.|All|P2|
+
+* I’m the lead developer of a hot new COBOL / BASIC syntax language project that compiles to JS, and I would love to be able to create a Firefox extension that integrates my transpiler script, syntax highlighting, debugging support.
+* As a student studying programming language design, I would love to be able to be able to bootstrap a full programming environment for my new language by transpiling to JS and implementing tools support in a Firefox extension.
+* All of the designers at my firm use stylus for styling content, and we need to be able to live-code style tweaks and seem them on-device.
+* If I paste stylus or sass into the style editor, Firefox should try to guess what the syntax is based on some heuristics.|All|P2|
+* I should be able to add stylus or sass support to the style editor and force Firefox to treat a given file or buffer as if it was that language, overriding defaults.|All|P1
+* I am a JS framework developer and I want to customize the output of my framework's objects in the webconsole/variables view *anywhere* they are displayed.
 
 ### GCLI
 
 GCLI and the developer toolbar are a powerful keyboard-driven way to interact with the developer tools, and it is already very simple to write and publish custom GCLI commands as extensions. We can make it even simpler.
 
-ID | Name   | Story    | User  | Priority
---- | --- | :--- | --- | ---
-dtapi-26|Expose to GCLI|As a user I want to expose functions from my extension as GCLI commands.|All|P1
-dtapi-27|Export to Extension|If I write a script in scratchpad that automates something in Firefox, I should be able to easily export it as an installable extension.|All|P3
+* As a user I want to expose functions from my extension as GCLI commands.
+* If I write a script in scratchpad that automates something in Firefox, I should be able to easily export it as an installable extension.|All|P3
