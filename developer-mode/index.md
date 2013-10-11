@@ -2,7 +2,7 @@
 
 Most users will not have multiple installations of Firefox on their system. Those that do fall into two categories:
 
-1. testers who might want to test a given build with their default profile, or with multiple profiles.
+1. testers who might want to test a given build with their default profile.
 2. web and add-on developers who might want to have multiple profiles - one for browsing, the other for development.
 
 The current user experience related to this is terrible and hasn't been reviewed for years:
