@@ -71,7 +71,7 @@ dtapi-03   |Settings integration  |When I look at the settings, it should be cle
 dtapi-04   |Default look  |If I use unstyled content in my tool,the default appearance should match the color scheme and fonts of the developer tools in general.  |All  |P2   
 dtapi-05   |Theme sensitive   |If I use unstyled content in my tool, it should react and match changes to the global devtools ‘theme’.   |All   |P2    
 dtapi-06   |DOM Access    |Scripts run in the tool pane should have access to the DOM of the current active tab.  |All  |P1   
-dtapi-06   |Inspector Panel    |I should be anle to add a custom new panel to the DOM Inespector|All  |P1
+dtapi-06   |Inspector Panel    |I should be able to add a new panel to the DOM Inspector's side panel|All  |P1
 
 ### Integrating with the Web Console
 
