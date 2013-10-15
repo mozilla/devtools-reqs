@@ -124,4 +124,4 @@ Web technology and techniques are a fast-moving target, and what is the new hotn
 GCLI and the developer toolbar are a powerful keyboard-driven way to interact with the developer tools, and it is already very simple to write and publish custom GCLI commands as extensions. We can make it even simpler.
 
 * As a user I want to expose functions from my extension as GCLI commands.
-* If I write a script in scratchpad that automates something in Firefox, I should be able to easily export it as an installable extension.|All|P3
+* If I write a script in scratchpad that automates something in Firefox, I should be able to easily export it as an installable extension.
