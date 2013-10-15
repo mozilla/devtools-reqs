@@ -70,7 +70,7 @@ Developers will want to create their own specialized tool and have it appear wit
 * If I use unstyled content in my tool,the default appearance should match the color scheme and fonts of the developer tools in general.
 * If I use unstyled content in my tool, it should react and match changes to the global devtools ‘theme’
 * Scripts run in the tool pane should have access to the DOM of the current active tab.
-*Inspector Panel    |I should be able to add a new panel to the DOM Inspector's side panel|All  |P1
+* I should be able to add a new panel to the DOM Inspector's side panel.
 
 ### Integrating with the Web Console
 
