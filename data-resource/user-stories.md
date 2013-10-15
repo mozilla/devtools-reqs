@@ -6,7 +6,7 @@
 
 ### General
 
-* As a user I should be able to access the 5 common supported types of storage are supported and easily accessible ( IndexedDB, Localstorage, Session, Cookies, Appcache ) for the current site.| 
+* As a user I should be able to access the 6 common supported types of storage are supported and easily accessible ( IndexedDB, Localstorage, Session, Cookies, Appcache, DataStore ) for the current site.| 
 * I should be able to view the sites data via an appropriate ‘viewer’ for that type of data.| All | P1
 * If there is more than one source uri of data on a page, data sources must be clearly labeled with which uri they came from.
 * I should be able to easily clear the currently stored data.
