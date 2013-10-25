@@ -107,9 +107,9 @@ Anyway, here are some basic user stories that capture how this could work:
 * I want to be able to update the content in the widget continuously.
 * I want to have some visual indication that an update has happened, so user’s attention will be captured.
 
-### Remotability
+### Remoteability
 
-Any high-level apis we provide should be remote-capable, meaning that developers using high-level apis should not have to do anything special to gain remote functionality.
+Any high-level apis we provide should be remote capable, meaning that developers using high-level apis should not have to do anything special to gain remote functionality.
 
 Conversely, developers may want to create much deeper integrations that involve custom remote server actors. It should be possible to register new actors on the server to support novel add-on client implementations.
 
