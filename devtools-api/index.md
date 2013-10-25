@@ -107,6 +107,12 @@ Anyway, here are some basic user stories that capture how this could work:
 * I want to be able to update the content in the widget continuously.
 * I want to have some visual indication that an update has happened, so user’s attention will be captured.
 
+### Remotability
+
+Any high-level apis we provide should be remote-capable, meaning that developers using high-level apis should not have to do anything special to gain remote functionality.
+
+Conversely, developers may want to create much deeper integrations that involve custom remote server actors. It should be possible to register new actors on the server to support novel add-on client implementations.
+
 ### Adding support for $
 
 Web technology and techniques are a fast-moving target, and what is the new hotness this year might get old-n-busted in a few months or even weeks. If we chase trends as a team and try to ship any and all trendy frameworks we are just setting ourselves up for frustration and the thrill of always chasing the new thing. Instead, we should figure out how to enable framework and tooling developers to integrate their new shiny with our solid base.
